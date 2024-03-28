@@ -9,7 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@coinmasters/pioneer-lib": "^0.0.13",
+    "@chakra-ui/react": "^2.8.2",
+    "@coinmasters/pioneer-lib": "^0.0.14",
     "@coinmasters/pioneer-react": "^0.5.6",
     "@coinmasters/types": "^4.5.0",
     "@coinmasters/wallet-keepkey": "^11.0.9",
