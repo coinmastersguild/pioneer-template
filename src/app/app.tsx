@@ -20,6 +20,7 @@ import {
   SignTransaction
 } from '@coinmasters/pioneer-lib';
 import Image from 'next/image';
+import { useOnStartApp } from "../utils/onStart";
 
 let SAMPLE_DATA: any = [
   {
@@ -395,39 +396,15 @@ let SAMPLE_DATA: any = [
 let SAMPLE_SWAP_TXID = '793156d36e0ea7789b6f048c6e6bda8a9ef09602aa2b8f571319cccfda1bec23'
 
 export default function App() {
-  const { onStart, state } = usePioneer();
+  const onStartApp = useOnStartApp();
+  const { state } = usePioneer();
   const { api, app, assets, context } = state;
   const [intent, setIntent] = useState('basic');
   const [tabIndex, setTabIndex] = useState(1);
   const [txHash, setTxHash] = useState(SAMPLE_SWAP_TXID);
   const [selectedAsset, setSelectedAsset] = useState({ });
 
-  let onStartApp = async function(){
-    try{
-      let walletsVerbose = []
-      const { keepkeyWallet } = await import("@coinmasters/wallet-keepkey");
-      //console.log('keepkeyWallet: ', keepkeyWallet);
 
-      const pioneerSetup: any = {
-        appName: "Pioneer Template",
-        appIcon: "https://pioneers.dev/coins/pioneerMan.png",
-      };
-      const walletKeepKey = {
-        type: WalletOption.KEEPKEY,
-        icon: "https://pioneers.dev/coins/keepkey.png",
-        chains: availableChainsByWallet[WalletOption.KEEPKEY],
-        wallet: keepkeyWallet,
-        status: "offline",
-        isConnected: false,
-      };
-      //console.log('walletKeepKey: ', walletKeepKey);
-      walletsVerbose.push(walletKeepKey);
-      //console.log('walletsVerbose: ', walletsVerbose);
-      onStart(walletsVerbose, pioneerSetup);
-    }catch(e){
-      console.error("Failed to start app!")
-    }
-  }
   useEffect(() => {
     onStartApp();
   }, []);
@@ -482,7 +459,7 @@ export default function App() {
         return <Portfolio usePioneer={usePioneer} />;
         break;
       case 'quote':
-        return <Quote quote={SAMPLE_DATA[0]} onAcceptSign={onAcceptSign}/>;
+        return <Quote usePioneer={usePioneer} uote={SAMPLE_DATA[0]} onAcceptSign={onAcceptSign}/>;
         break;
       case 'quotes':
         return <Quotes onClose={onClose} onSelectQuote={onSelect} Quotes={SAMPLE_DATA}/>;
