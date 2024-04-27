@@ -1,6 +1,6 @@
 # Pioneer Template
 
-view [demo:](https://pioneer-template.vercel.app/)
+view [demo:](https://pioneer-template-xi.vercel.app/)
 
 View the guides!
 [Building dApps with Pioneer](https://medium.com/@highlander_35968/building-dapps-with-pioneer-template-1ff2a8633c7a)
