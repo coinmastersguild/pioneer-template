@@ -2,7 +2,7 @@
 
 .idea
 .idea/*
-
+*.db
 # dependencies
 /node_modules
 /.pnp

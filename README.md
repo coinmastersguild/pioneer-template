@@ -21,3 +21,8 @@ pnpm i
 ```
 pnpm run dev
 ```
+
+Build a new project
+```
+npx degit coinmastersguild/pioneer-template *your-project-name*
+```
