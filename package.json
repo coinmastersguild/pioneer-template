@@ -11,7 +11,7 @@
   "dependencies": {
     "@chakra-ui/react": "^2.8.2",
     "@coinmasters/pioneer-lib": "latest",
-    "@coinmasters/pioneer-react": "latest",
+    "@coinmasters/pioneer-react": "^0.7.10",
     "@coinmasters/types": "latest",
     "@coinmasters/wallet-evm-extensions": "latest",
     "@coinmasters/wallet-keepkey": "latest",
@@ -22,6 +22,7 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@coinmasters/helpers": "^11.0.10",
     "@types/node": "^20.12.11",
     "@types/react": "^18.3.1",
     "@types/react-dom": "^18.3.0",

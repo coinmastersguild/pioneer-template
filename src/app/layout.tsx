@@ -1,7 +1,6 @@
-'use client';
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { PioneerProvider } from "@coinmasters/pioneer-react"
+import { PioneerProvider } from "./providers";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({
