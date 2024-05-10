@@ -28,7 +28,6 @@ export default function App() {
   const { api, app, assets, context } = state;
   const [intent, setIntent] = useState('basic');
   const [tabIndex, setTabIndex] = useState(1);
-  const [txHash, setTxHash] = useState(SAMPLE_SWAP_TXID);
   const [selectedAsset, setSelectedAsset] = useState({ });
 
 
