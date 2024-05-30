@@ -17,6 +17,7 @@ import {
   Quotes,
   Swap,
   Track,
+  Classic,
   SignTransaction
 } from '@coinmasters/pioneer-lib';
 import Image from 'next/image';
@@ -26,10 +27,9 @@ export default function App() {
   const onStartApp = useOnStartApp();
   const { state } = usePioneer();
   const { api, app, assets, context } = state;
-  const [intent, setIntent] = useState('basic');
+  const [intent, setIntent] = useState('classic');
   const [tabIndex, setTabIndex] = useState(1);
   const [selectedAsset, setSelectedAsset] = useState({ });
-
 
   useEffect(() => {
     onStartApp();
@@ -81,6 +81,9 @@ export default function App() {
       // case 'sign':
       //   return <SignTransaction usePioneer={usePioneer} setTxHash={setTxHash} onClose={onClose} quote={SAMPLE_DATA[0]}/>;
       //   break;
+      case 'classic':
+        return <Classic usePioneer={usePioneer} />;
+        break;
       case 'portfolio':
         return <Portfolio usePioneer={usePioneer} />;
         break;
@@ -91,7 +94,7 @@ export default function App() {
         break;
       // Handle other cases as needed
       default:
-        return <div>No valid intent selected</div>;
+        return <div></div>;
     }
   };
 
@@ -115,6 +118,7 @@ export default function App() {
             <option value="quote">Quote</option>
             <option value="asset">Asset</option>
             <option value="amount">amount</option>
+            <option value="classic">classic</option>
             <option value="sign">sign</option>
             <option value="assets">Assets</option>
             <option value="track">Track</option>
