@@ -3,6 +3,7 @@ import { usePioneer } from "@coinmasters/pioneer-react";
 import { WalletOption, availableChainsByWallet } from '@coinmasters/types';
 
 export const useOnStartApp = () => {
+    console.log('usePioneer:', usePioneer);
     const { onStart } = usePioneer();
 
     const onStartApp = async () => {

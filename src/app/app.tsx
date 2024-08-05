@@ -1,11 +1,11 @@
 "use client";
 import { Select, Box, Tabs, TabList, Tab, TabPanels, TabPanel } from '@chakra-ui/react';
-import * as React from 'react';
 import { usePioneer } from "@coinmasters/pioneer-react"
 import { availableChainsByWallet, WalletOption } from '@coinmasters/types';
 import { useState, useEffect } from 'react';
 //components
 import {
+  PioneerButton,
   Pioneer,
   Basic,
   Portfolio,
@@ -18,6 +18,8 @@ import {
   Swap,
   Track,
   Classic,
+  Search,
+  Chat,
   SignTransaction
 } from '@coinmasters/pioneer-lib';
 import Image from 'next/image';
@@ -27,7 +29,7 @@ export default function App() {
   const onStartApp = useOnStartApp();
   const { state } = usePioneer();
   const { api, app, assets, context } = state;
-  const [intent, setIntent] = useState('classic');
+  const [intent, setIntent] = useState('chat');
   const [tabIndex, setTabIndex] = useState(1);
   const [selectedAsset, setSelectedAsset] = useState({ });
 
@@ -63,6 +65,9 @@ export default function App() {
   const renderComponent = () => {
     // Your switch case logic here, similar to the original
     switch (intent) {
+      case 'pioneer':
+        return <Pioneer usePioneer={usePioneer}/>;
+        break;
       case 'basic':
         return <Basic usePioneer={usePioneer}/>;
         break;
@@ -89,6 +94,12 @@ export default function App() {
         break;
       // case 'track':
       //   return <Track txHash={SAMPLE_SWAP_TXID}/>;
+      case 'chat':
+        return <Chat usePioneer={usePioneer}/>;
+        break;
+      // case 'search':
+      //   return <Search usePioneer={usePioneer}/>;
+      //   break;
       case 'swap':
         return <Swap usePioneer={usePioneer}/>;
         break;
@@ -113,6 +124,7 @@ export default function App() {
           {/* Website title */}
           <span className="text-xl font-bold">Pioneer SDK</span>
           <Select onChange={handleIntentChange} placeholder="Select Component" width="auto">
+            <option value="pioneer">Pioneer</option>
             <option value="basic">Basic</option>
             <option value="transfer">Transfer</option>
             <option value="quote">Quote</option>
@@ -121,11 +133,13 @@ export default function App() {
             <option value="classic">classic</option>
             <option value="sign">sign</option>
             <option value="assets">Assets</option>
+            <option value="search">Search</option>
+            <option value="chat">Chat</option>
             <option value="track">Track</option>
             <option value="swap">Swap</option>
           </Select>
         </div>
-        <Pioneer usePioneer={usePioneer}/>
+        <PioneerButton usePioneer={usePioneer}/>
       </header>
 
       {/* Main Content */}
