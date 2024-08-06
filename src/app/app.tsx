@@ -18,7 +18,6 @@ import {
   Swap,
   Track,
   Classic,
-  Search,
   Chat,
   SignTransaction
 } from '@coinmasters/pioneer-lib';
@@ -97,9 +96,6 @@ export default function App() {
       case 'chat':
         return <Chat usePioneer={usePioneer}/>;
         break;
-      // case 'search':
-      //   return <Search usePioneer={usePioneer}/>;
-      //   break;
       case 'swap':
         return <Swap usePioneer={usePioneer}/>;
         break;
